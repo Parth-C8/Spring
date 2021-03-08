@@ -53,11 +53,11 @@ public class EmployeeResource {
 
     //Updates an Employee
     @PutMapping(path = "/employee/{id}")
-    public void updateOneEmployee(@RequestBody Employee employee, @PathVariable int id) {
+    public Employee updateOneEmployee(@RequestBody Employee employee, @PathVariable int id) {
         Employee emp1 = employeeDaoService.updateEmployee(employee,id);
         if (emp1 == null)
             throw new EmployeeNotFoundException("Employee with id: " + id + " not found !!");
-        //return emp1;
+        return emp1;
     }
 
 
